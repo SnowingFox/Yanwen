@@ -1,16 +1,17 @@
 {
-  "name": "@qaq/core",
-  "version": "1.0.0",
+  "name": "qaq-font",
+  "version": "1.0.1",
   "description": "A lib of Yanwen font",
-  "keywords": ["颜文字", "face font", "qaq", "QAQ"],
-  "main": "index.js",
+  "keywords": ["颜文字", "face font", "qaq", "QAQ", "qaq-font", "QAQfont"],
+  "license": "MIT",
+  "author": "snowingfox",
+  "repository": {"url": "https://github.com/SnowingFox/Yanwen"},
+  "main": "dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "buid": "rollup rollup.config.js"
   },
-  "author": "snowingfox",
-  "license": "MIT",
-  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@antfu/eslint-config": "^0.19.1",
     "@babel/core": "^7.17.8",

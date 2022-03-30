@@ -7,7 +7,14 @@ A lib of Yanwen font
 ## Install ＼(＠＾０＾＠)/♪
 
 ```bash
-npm install @qaq/core
+# npm
+npm i qaq-font
+
+# yarn
+yarn add qaq-font
+
+# pnpm
+pnpm i qaq-font
 ```
 
 ## Usage o(*≧▽≦)ツ ~ ┴┴
