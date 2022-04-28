@@ -48,7 +48,6 @@ export const QAQ: IQAQ = {
     ' (☆^ー^☆) ',
     '＼(＠＾０＾＠)/♪',
     'o(＊＾▽＾＊)o♪',
-    '',
   ],
   angry: [
     'o(´^｀)o',
@@ -84,7 +83,6 @@ export const QAQ: IQAQ = {
     'o(*≧д≦)o!!',
     '╰（‵□′）╯',
     '┴─┴︵╰（‵□′╰）',
-    '',
   ],
   sadness: [
     '( ๑ŏ ﹏ ŏ๑ )',
@@ -130,7 +128,7 @@ export const QAQ: IQAQ = {
     'Σ(°Д°;',
     '∑(￣□￣;)',
     'Σ（OдO‖) Σ(☆д◎川）ノ！ ',
-    '"(º Д º*)',
+    '(º Д º*)',
   ],
   classic: [
     '+_+',
@@ -165,24 +163,46 @@ export const QAQ: IQAQ = {
     ':-D',
     ':( ',
     ':P',
-    '',
   ],
 }
 
-export function getQAQ<T extends keyof IQAQ>(key?: T): any {
+export type QAQKey = keyof IQAQ
+
+export function getQAQ<T extends keyof IQAQ>(key?: T): IQAQ
+export function getQAQ<T extends keyof IQAQ>(key: T): IQAQ | IQAQ[QAQKey] {
   if (key) {
-    return QAQ[key]
+    return QAQ[key] as IQAQ[QAQKey]
   }
-  return QAQ
+  return QAQ as IQAQ
 }
 
-export function getRandomQAQ(key: keyof IQAQ, num = 1) {
+export function getRandomQAQ(type: QAQKey, num = 1) {
   const result: string[] = []
-  const item = QAQ[key]
+  const item = QAQ[type]
   for (let i = 1; i <= num; i++) {
     const random = Math.floor(Math.random() * item.length)
     result.push(item[random])
   }
 
   return result
+}
+
+type Props = { key: QAQKey; qaq: string | string[] }
+
+export function addQAQ(props: Props | Props[]) {
+  if (!Array.isArray(props)) {
+    props = [props]
+  }
+
+  props.forEach((prop) => {
+    if (!Array.isArray(prop.qaq)) {
+      prop.qaq = [prop.qaq]
+    }
+
+    prop.qaq.forEach((font) => {
+      QAQ[prop.key].push(font)
+    })
+  })
+
+  return QAQ
 }

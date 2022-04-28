@@ -1,5 +1,5 @@
 import type { IQAQ } from '../index'
-import { QAQ, getQAQ, getRandomQAQ } from '../index'
+import { QAQ, addQAQ, getQAQ, getRandomQAQ } from '../index'
 
 describe('QAQ', () => {
   describe('getQAQ()', () => {
@@ -16,6 +16,11 @@ describe('QAQ', () => {
     })
   })
 
+  it('should xxxx', () => {
+    const icons = getQAQ('angry')
+    console.log(icons[1])
+  })
+
   describe('getRandomQAQ()', () => {
     it('should return an correctly icons', () => {
       const icons = getQAQ() as IQAQ
@@ -30,5 +35,12 @@ describe('QAQ', () => {
 
       expect(flag).toBe(true)
     })
+  })
+
+  test('addQAQ', () => {
+    const afterAdd = addQAQ({ key: 'angry', qaq: '2' })
+    const nowQAQ = getQAQ()
+    expect(afterAdd.angry.includes('2')).toBe(true)
+    expect(afterAdd).toBe(nowQAQ)
   })
 })
