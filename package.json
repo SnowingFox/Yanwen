@@ -10,7 +10,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "buid": "rollup rollup.config.js"
+    "build": "rollup rollup.config.js"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.19.1",
